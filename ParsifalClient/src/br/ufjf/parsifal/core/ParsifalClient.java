@@ -23,10 +23,56 @@
  */
 package br.ufjf.parsifal.core;
 
+import br.ufjf.parsifal.exception.ParsifalException;
+import br.ufjf.parsifal.model.Article;
+import br.ufjf.parsifal.model.Keyword;
+import br.ufjf.parsifal.model.Question;
+import br.ufjf.parsifal.model.Review;
+import br.ufjf.parsifal.model.SelectionCriteria;
+import br.ufjf.parsifal.model.Source;
+import com.google.gson.Gson;
+import java.net.HttpURLConnection;
+import java.util.List;
+
 /**
  *
  * @author vitorfs
  */
-public class ParsifalClient extends ParsifalClientBase {
+public class ParsifalClient extends ParsifalClientBase implements ParsifalServices {
+
+    @Override
+    public Review getReview(String reviewName) throws ParsifalException {
+        String url = "/reviews/" + reviewName;
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        //SearchResult result = new Gson().fromJson(content, SearchResult.class);
+        System.out.println(content);
+        return new Review();
+    }
+
+    @Override
+    public List<Article> getReviewArticles(String reviewName) throws ParsifalException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Question> getReviewQuestions(String reviewName) throws ParsifalException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Keyword> getReviewKeywords(String reviewName) throws ParsifalException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<SelectionCriteria> getReviewSelectionCriterias(String reviewName) throws ParsifalException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Source> getReviewSources(String reviewName) throws ParsifalException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

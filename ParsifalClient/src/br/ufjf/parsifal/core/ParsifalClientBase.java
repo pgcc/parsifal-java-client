@@ -57,7 +57,7 @@ public abstract class ParsifalClientBase {
         this.password = password;
     }
         
-    protected HttpURLConnection request(String endpoint, String method, int expectedResponseCode, String acceptData, String contentType, String filePath, String putData) throws ParsifalException {
+    protected HttpURLConnection request(String endpoint, String method, int expectedResponseCode, String acceptData) throws ParsifalException {
         HttpURLConnection connection = null;
         
         try {            
@@ -75,10 +75,6 @@ public abstract class ParsifalClientBase {
             
             if (acceptData != null) {
                 connection.setRequestProperty("Accept", acceptData);
-            }
-            
-            if (contentType != null) {
-                connection.setRequestProperty("Content-Type", contentType);
             }
             
             int responseCode = connection.getResponseCode();

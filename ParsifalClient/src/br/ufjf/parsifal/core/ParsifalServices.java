@@ -39,10 +39,10 @@ import java.util.List;
 public interface ParsifalServices {
     
     public Review getReview(String reviewName) throws ParsifalException;
-    public List<Article> getReviewArticles(String reviewName) throws ParsifalException;
-    public List<Question> getReviewQuestions(String reviewName) throws ParsifalException;
-    public List<Keyword> getReviewKeywords(String reviewName) throws ParsifalException;
-    public List<SelectionCriteria> getReviewSelectionCriterias(String reviewName) throws ParsifalException;
-    public List<Source> getReviewSources(String reviewName) throws ParsifalException;
+    public List<Article> getReviewArticles(String reviewId) throws ParsifalException;
+    public List<Question> getReviewQuestions(String reviewId) throws ParsifalException;
+    public List<Keyword> getReviewKeywords(String reviewId) throws ParsifalException;
+    public List<SelectionCriteria> getReviewSelectionCriterias(String reviewId) throws ParsifalException;
+    public List<Source> getSources() throws ParsifalException;
     
 }

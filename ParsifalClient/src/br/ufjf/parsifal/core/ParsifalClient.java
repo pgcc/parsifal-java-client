@@ -42,8 +42,8 @@ import java.util.List;
 public class ParsifalClient extends ParsifalClientBase implements ParsifalServices {
 
     @Override
-    public Review getReview(String reviewName) throws ParsifalException {
-        String url = "/reviews/" + reviewName;
+    public Review getReview(String reviewId) throws ParsifalException {
+        String url = "/reviews/" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
         Review review = new Gson().fromJson(content, Review.class);
@@ -51,8 +51,8 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
     }
     
     @Override
-    public List<Article> getReviewArticles(String reviewName) throws ParsifalException {
-        String url = "/articles?review=" + reviewName;
+    public List<Article> getReviewArticles(String reviewId) throws ParsifalException {
+        String url = "/articles?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
         SearchResult<Article> results = new Gson().fromJson(content, SearchResult.class);
@@ -60,23 +60,39 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
     }
 
     @Override
-    public List<Question> getReviewQuestions(String reviewName) throws ParsifalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Question> getReviewQuestions(String reviewId) throws ParsifalException {
+        String url = "/questions?review=" + reviewId;
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        SearchResult<Question> results = new Gson().fromJson(content, SearchResult.class);
+        return results.getResults();
     }
 
     @Override
-    public List<Keyword> getReviewKeywords(String reviewName) throws ParsifalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Keyword> getReviewKeywords(String reviewId) throws ParsifalException {
+        String url = "/keywords?review=" + reviewId;
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        SearchResult<Keyword> results = new Gson().fromJson(content, SearchResult.class);
+        return results.getResults();
     }
 
     @Override
-    public List<SelectionCriteria> getReviewSelectionCriterias(String reviewName) throws ParsifalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<SelectionCriteria> getReviewSelectionCriterias(String reviewId) throws ParsifalException {
+        String url = "/selection_criterias?review=" + reviewId;
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        SearchResult<SelectionCriteria> results = new Gson().fromJson(content, SearchResult.class);
+        return results.getResults();
     }
 
     @Override
-    public List<Source> getReviewSources(String reviewName) throws ParsifalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Source> getSources() throws ParsifalException {
+        String url = "/sources";
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        SearchResult<Source> results = new Gson().fromJson(content, SearchResult.class);
+        return results.getResults();
     }
     
 }

@@ -28,6 +28,7 @@ import br.ufjf.parsifal.model.Article;
 import br.ufjf.parsifal.model.Keyword;
 import br.ufjf.parsifal.model.Question;
 import br.ufjf.parsifal.model.Review;
+import br.ufjf.parsifal.model.SearchResult;
 import br.ufjf.parsifal.model.SelectionCriteria;
 import br.ufjf.parsifal.model.Source;
 import com.google.gson.Gson;
@@ -46,13 +47,16 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
         Review review = new Gson().fromJson(content, Review.class);
-        System.out.println(content);
         return review;
     }
-
+    
     @Override
     public List<Article> getReviewArticles(String reviewName) throws ParsifalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String url = "/articles?review=" + reviewName;
+        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        String content = parseResponse(response);
+        SearchResult<Article> results = new Gson().fromJson(content, SearchResult.class);
+        return results.getResults();
     }
 
     @Override

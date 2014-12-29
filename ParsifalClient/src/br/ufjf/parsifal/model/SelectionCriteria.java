@@ -29,4 +29,65 @@ package br.ufjf.parsifal.model;
  */
 public class SelectionCriteria {
     
+    private Integer id;
+    private String criteria_type;
+    private String description;
+    private Integer review;    
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the criteria_type
+     */
+    public String getCriteria_type() {
+        return criteria_type;
+    }
+
+    /**
+     * @param criteria_type the criteria_type to set
+     */
+    public void setCriteria_type(String criteria_type) {
+        this.criteria_type = criteria_type;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the review
+     */
+    public Integer getReview() {
+        return review;
+    }
+
+    /**
+     * @param review the review to set
+     */
+    public void setReview(Integer review) {
+        this.review = review;
+    }
+    
 }

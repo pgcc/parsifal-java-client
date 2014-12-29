@@ -1,8 +1,3 @@
-
-import br.ufjf.parsifal.core.ParsifalClient;
-import br.ufjf.parsifal.model.Article;
-import java.util.List;
-
 /*
  * The MIT License
  *
@@ -26,24 +21,75 @@ import java.util.List;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package br.ufjf.parsifal.model;
+
+import java.util.List;
+
 /**
  *
  * @author vitorfs
+ * @param <T>
  */
-public class Samples {
-    public static void main(String[] args) {
-        ParsifalClient client = new ParsifalClient();
-        //client.setBaseUri("http://127.0.0.1:8000/api");
-        client.setBaseUri("http://parsif.al/api");
-        client.setAuthorization("plscience", "plscience");
-        
-        try {
-            //Review review = client.getReview("5");
-            List<Article> articles = client.getReviewArticles("28");
-            
-            articles.get(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+public class SearchResult<T> {
+    
+    private Integer count;
+    private String next;
+    private String previous;    
+    private List<T> results;
+
+    /**
+     * @return the count
+     */
+    public Integer getCount() {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    /**
+     * @return the next
+     */
+    public String getNext() {
+        return next;
+    }
+
+    /**
+     * @param next the next to set
+     */
+    public void setNext(String next) {
+        this.next = next;
+    }
+
+    /**
+     * @return the previous
+     */
+    public String getPrevious() {
+        return previous;
+    }
+
+    /**
+     * @param previous the previous to set
+     */
+    public void setPrevious(String previous) {
+        this.previous = previous;
+    }
+
+    /**
+     * @return the results
+     */
+    public List<T> getResults() {
+        return results;
+    }
+
+    /**
+     * @param results the results to set
+     */
+    public void setResults(List<T> results) {
+        this.results = results;
     }
 }

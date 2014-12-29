@@ -28,5 +28,79 @@ package br.ufjf.parsifal.model;
  * @author vitorfs
  */
 public class Keyword {
-    
+    private Integer id;
+    private String description;
+    private String related_to;
+    private Integer review;
+    private Integer synonym_of;
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the related_to
+     */
+    public String getRelated_to() {
+        return related_to;
+    }
+
+    /**
+     * @param related_to the related_to to set
+     */
+    public void setRelated_to(String related_to) {
+        this.related_to = related_to;
+    }
+
+    /**
+     * @return the review
+     */
+    public Integer getReview() {
+        return review;
+    }
+
+    /**
+     * @param review the review to set
+     */
+    public void setReview(Integer review) {
+        this.review = review;
+    }
+
+    /**
+     * @return the synonym_of
+     */
+    public Integer getSynonym_of() {
+        return synonym_of;
+    }
+
+    /**
+     * @param synonym_of the synonym_of to set
+     */
+    public void setSynonym_of(Integer synonym_of) {
+        this.synonym_of = synonym_of;
+    }
 }

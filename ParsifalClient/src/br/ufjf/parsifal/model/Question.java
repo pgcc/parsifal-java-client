@@ -28,5 +28,66 @@ package br.ufjf.parsifal.model;
  * @author vitorfs
  */
 public class Question {
-    
+
+    private Integer id;
+    private String question;
+    private Integer review;
+    private Integer parent_question;
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the question
+     */
+    public String getQuestion() {
+        return question;
+    }
+
+    /**
+     * @param question the question to set
+     */
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    /**
+     * @return the review
+     */
+    public Integer getReview() {
+        return review;
+    }
+
+    /**
+     * @param review the review to set
+     */
+    public void setReview(Integer review) {
+        this.review = review;
+    }
+
+    /**
+     * @return the parent_question
+     */
+    public Integer getParent_question() {
+        return parent_question;
+    }
+
+    /**
+     * @param parent_question the parent_question to set
+     */
+    public void setParent_question(Integer parent_question) {
+        this.parent_question = parent_question;
+    }
+
 }

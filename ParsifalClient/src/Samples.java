@@ -1,5 +1,6 @@
 
 import br.ufjf.parsifal.core.ParsifalClient;
+import br.ufjf.parsifal.model.Review;
 
 /*
  * The MIT License
@@ -35,7 +36,8 @@ public class Samples {
         client.setAuthorization("admin", "admin");
         
         try {
-            client.getReview("1");
+            Review review = client.getReview("1");
+            review.getId();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -45,9 +45,9 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/reviews/" + reviewName;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        //SearchResult result = new Gson().fromJson(content, SearchResult.class);
+        Review review = new Gson().fromJson(content, Review.class);
         System.out.println(content);
-        return new Review();
+        return review;
     }
 
     @Override

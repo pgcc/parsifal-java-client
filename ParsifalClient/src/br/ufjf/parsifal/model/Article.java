@@ -169,6 +169,10 @@ public class Article {
     public void setAbstract(String _abstract) {
         this._abstract = _abstract;
     }
+    
+    public String getPaperAbstract() {
+        return _abstract;
+    }
 
     /**
      * @return the document_type

@@ -32,6 +32,7 @@ import br.ufjf.parsifal.model.SearchResult;
 import br.ufjf.parsifal.model.SelectionCriteria;
 import br.ufjf.parsifal.model.Source;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.net.HttpURLConnection;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/articles?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        SearchResult<Article> results = new Gson().fromJson(content, SearchResult.class);
+        SearchResult<Article> results = new Gson().fromJson(content, new TypeToken<SearchResult<Article>>(){}.getType());
         return results.getResults();
     }
 
@@ -64,7 +65,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/questions?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        SearchResult<Question> results = new Gson().fromJson(content, SearchResult.class);
+        SearchResult<Question> results = new Gson().fromJson(content, new TypeToken<SearchResult<Question>>(){}.getType());
         return results.getResults();
     }
 
@@ -73,7 +74,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/keywords?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        SearchResult<Keyword> results = new Gson().fromJson(content, SearchResult.class);
+        SearchResult<Keyword> results = new Gson().fromJson(content, new TypeToken<SearchResult<Keyword>>(){}.getType());
         return results.getResults();
     }
 
@@ -82,7 +83,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/selection_criterias?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        SearchResult<SelectionCriteria> results = new Gson().fromJson(content, SearchResult.class);
+        SearchResult<SelectionCriteria> results = new Gson().fromJson(content, new TypeToken<SearchResult<SelectionCriteria>>(){}.getType());
         return results.getResults();
     }
 
@@ -91,7 +92,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/sources";
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
-        SearchResult<Source> results = new Gson().fromJson(content, SearchResult.class);
+        SearchResult<Source> results = new Gson().fromJson(content, new TypeToken<SearchResult<Source>>(){}.getType());
         return results.getResults();
     }
     

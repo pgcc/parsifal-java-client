@@ -56,6 +56,7 @@ public class ParsifalClient extends ParsifalClientBase implements ParsifalServic
         String url = "/articles?review=" + reviewId;
         HttpURLConnection response = request(url, "GET", 200, "application/json");
         String content = parseResponse(response);
+        content = content.replace("abstract", "article_abstract");
         SearchResult<Article> results = new Gson().fromJson(content, new TypeToken<SearchResult<Article>>(){}.getType());
         return results.getResults();
     }

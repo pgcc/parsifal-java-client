@@ -37,7 +37,7 @@ public class Article {
     private String pages;
     private String volume;
     private String author;
-    private String _abstract;
+    private String article_abstract;
     private String document_type;
     private String status;
     private String comments;
@@ -157,24 +157,6 @@ public class Article {
     }
 
     /**
-     * @return the _abstract
-     */
-    public String getAbstract() {
-        return _abstract;
-    }
-
-    /**
-     * @param _abstract the _abstract to set
-     */
-    public void setAbstract(String _abstract) {
-        this._abstract = _abstract;
-    }
-    
-    public String getPaperAbstract() {
-        return _abstract;
-    }
-
-    /**
      * @return the document_type
      */
     public String getDocument_type() {
@@ -242,6 +224,20 @@ public class Article {
      */
     public void setSource(Integer source) {
         this.source = source;
+    }
+
+    /**
+     * @return the article_abstract
+     */
+    public String getArticle_abstract() {
+        return article_abstract;
+    }
+
+    /**
+     * @param article_abstract the article_abstract to set
+     */
+    public void setArticle_abstract(String article_abstract) {
+        this.article_abstract = article_abstract;
     }
     
 }
